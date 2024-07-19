@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathWorks </title>
+    <title>MathWorks Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,6 +16,10 @@
         }
         .container {
             text-align: center;
+        }
+        #logo {
+            width: 200px; /* Adjust size as needed */
+            height: auto;
         }
         .login-popup {
             display: none;
@@ -33,10 +37,30 @@
         .login-popup h2 {
             margin-top: 0;
         }
-        .login-popup select {
+        .login-popup label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .login-popup input[type="text"],
+        .login-popup input[type="password"] {
             width: 100%;
             padding: 10px;
-            margin-top: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-popup button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-popup button:hover {
+            background-color: #0056b3;
         }
         .overlay {
             display: none;
@@ -56,13 +80,10 @@
         <div class="overlay" id="overlay"></div>
         <div class="login-popup" id="loginPopup">
             <h2>Login</h2>
-            <label for="userSelect">Select User:</label>
-            <select id="userSelect">
-                <option value="user1">User 1</option>
-                <option value="user2">User 2</option>
-                <option value="user3">User 3</option>
-                <!-- Add more users as needed -->
-            </select>
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username" />
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" />
             <button onclick="login()">Login</button>
         </div>
     </div>
@@ -73,8 +94,18 @@
         }
 
         function login() {
-            const selectedUser = document.getElementById('userSelect').value;
-            alert(`You selected ${selectedUser} for login.`);
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // For demonstration purposes, hardcoded credentials
+            const validUser = 'user1';
+            const validPass = 'password1';
+
+            if (username === validUser && password === validPass) {
+                alert('Login successful');
+            } else {
+                alert('Invalid username or password');
+            }
         }
 
         window.onload = function() {
