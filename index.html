@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathWorks Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        .login-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 300px;
+            z-index: 1000;
+        }
+        .login-popup h2 {
+            margin-top: 0;
+        }
+        .login-popup select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="logo" src="mathworks.png" alt="MathWorks Logo" />
+        <div class="overlay" id="overlay"></div>
+        <div class="login-popup" id="loginPopup">
+            <h2>Login</h2>
+            <label for="userSelect">Select User:</label>
+            <select id="userSelect">
+                <option value="user1">User 1</option>
+                <option value="user2">User 2</option>
+                <option value="user3">User 3</option>
+                <!-- Add more users as needed -->
+            </select>
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+    <script>
+        function showLoginPopup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('loginPopup').style.display = 'block';
+        }
+
+        function login() {
+            const selectedUser = document.getElementById('userSelect').value;
+            alert(`You selected ${selectedUser} for login.`);
+        }
+
+        window.onload = function() {
+            setTimeout(showLoginPopup, 3000); // Show login popup after 3 seconds
+        };
+    </script>
+</body>
+</html>
